@@ -136,13 +136,13 @@ jobs:
         working-directory: build
         run: cmake --build . --target package --config ${{ matrix.configuration }} --parallel 2
       - name: upload zip artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: RWE Zip ${{ runner.os }} MSVC ${{ matrix.configuration }}
           path: build/dist/RobotWarEngine-*-Windows-${{ matrix.configuration }}.zip
           if-no-files-found: error
       - name: upload installer artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: RWE Installer ${{ runner.os }} MSVC ${{ matrix.configuration }}
           path: build/dist/RobotWarEngine-*-Windows-${{ matrix.configuration }}.exe
@@ -228,13 +228,13 @@ jobs:
         run: make package
         shell: msys2 {0}
       - name: upload zip artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: RWE Zip ${{ runner.os }} MinGW64 ${{ matrix.configuration }}
           path: build/dist/RobotWarEngine-*-Windows-${{ matrix.configuration }}.zip
           if-no-files-found: error
       - name: upload installer artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: RWE Installer ${{ runner.os }} MinGW64 ${{ matrix.configuration }}
           path: build/dist/RobotWarEngine-*-Windows-${{ matrix.configuration }}.exe
